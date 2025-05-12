@@ -1,5 +1,7 @@
 {
-  "cssTheme": "Tokyo Night",
+  "cssTheme": "Catppuccin",
   "interfaceFontFamily": "PT Mono",
-  "textFontFamily": "Andale Mono"
+  "textFontFamily": "Andale Mono",
+  "theme": "obsidian",
+  "baseFontSize": 17
 }

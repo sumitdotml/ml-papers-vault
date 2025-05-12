@@ -2,4 +2,4 @@ This is my obsidian vault for piling up notes on ml papers I read & building my 
 
 ---
 ## Papers
-1. [Mistral 7B v0.1](./Mistral%207B%20v0.1/Resources.md)
+1. [Mistral 7B v0.1](./Mistral%207B%20v0.1/Mistral%207b%20v0.1.md)
