@@ -15,13 +15,13 @@
 
 
 ## Terms to go through
+
 - Sliding Window Attention (SWA)
 	- SWA and how it integrates with GQA to form the Mistral architecture
 - Rolling Buffer Cache
 - Pre-fill and Chunking
-## Current Notes
 
-### Sliding Window Attention
+## Sliding Window Attention
 Mistral 7B uses SWA to tackle the cost problem with a normal Full Attention. Instead of allowing every token to look back at _all_ previous tokens, SWA restricts its view.
 
 **The Core Idea:** Each token can only attend to a fixed number of immediately preceding tokens, plus itself. This fixed number is called the **Window Size (W)**.
@@ -97,7 +97,7 @@ So, basically the illustration below:
 
 [[mistral7b0-1.pdf#page=2&selection=157,36,168,6|mistral7b0-1, page 2]]
 
-### Rolling Buffer Cache
+## Rolling Buffer Cache
 
 > A fixed attention span means that we can limit our cache size using a rolling buffer cache. The cache has a fixed size of W , and the keys and values for the timestep i are stored in position i mod W of the cache. As a result, when the position i is larger than W , past values in the cache are overwritten, and the size of the cache stops increasing
 
@@ -159,3 +159,78 @@ Let me assume **Window Size (`W`) = 4** and try to visualize the rolling buffer 
 ...and so on. The cache always contains the K/V pairs for the most recent `W=4` tokens, and its memory size never increases beyond `W`. In the paper, this is visualized like the following:
 
 ![Rolling Buffer Cache screenshot](./Pasted%20image%2020250513081338.png)
+
+## Pre-fill and Chunking
+
+> When generating a sequence, we need to predict tokens one-by-one, as each token is conditioned on the previous ones. However, the prompt is known in advance, and we can pre-fill the (k, v) cache with the prompt. If the prompt is very large, we can chunk it into smaller pieces, and pre-fill the cache with each chunk. For this purpose, we can select the window size as our chunk size. For each chunk, we thus need to compute the attention over the cache and over the chunk.
+
+[[mistral7b0-1.pdf#page=3&selection=33,0,43,6|mistral7b0-1, page 3]]
+
+My mental model:
+
+1. **"When generating a sequence, we need to predict tokens one-by-one, as each token is conditioned on the previous ones."**
+    
+    - **My understanding:** This is standard autoregressive generation.
+
+2. **"However, the prompt is known in advance, and we can pre-fill the (k, v) cache with the prompt."**
+    
+    - **My understanding:** This is exactly what we call the "pre-fill" phase: processing the entire input prompt to populate the KV cache.
+
+3. **"If the prompt is very large, we can chunk it into smaller pieces, and pre-fill the cache with each chunk."**
+    
+    - **My understanding:** This is the "chunking" concept for very long prompts. We break the long prompt into manageable segments and process them sequentially, updating the rolling buffer cache at each step.
+
+4. **"For this purpose, we can select the window size as our chunk size."**
+    
+    - **My understanding:** This is a specific implementation detail for chunking. If my SWA window size `W` is 4096, I might process the long prompt in operational chunks of 4096 tokens. This makes sense as `W` is the amount of history a token directly "sees."
+
+5. **"For each chunk, we thus need to compute the attention over the cache and over the chunk."**
+    
+    - **My understanding:**
+        - **"Attention over the cache":** When processing tokens in the current chunk (say, Chunk N), these tokens will attend to the relevant K/V pairs already stored in the rolling buffer cache from the _previous_ chunks (Chunk 1 to N-1), limited by the SWA window.
+          
+        - **"Attention over the chunk":** Tokens in the current chunk (Chunk N) will also attend to preceding tokens _within that same Chunk N_ (causally).
+
+![Pasted image 20250513215126.png](Pasted%20image%2020250513215126.png)
+
+6. **"Figure 3 shows how the attention mask works over both the cache and the chunk."**
+    
+    - Let's use the example from Figure 3. Assuming `W` (Sliding Window Size) is, for instance, 4 for simplicity with these short chunks, and the "chunk size" for processing is also 4 (length of "The cat sat on").
+        
+        - Chunk 1 (C1): "The cat sat on" (Tokens T1, T2, T3, T4)
+        - Chunk 2 (C2): "the mat and saw" (Tokens T5, T6, T7, T8)
+        - Chunk 3 (C3): "the dog go to" (Tokens T9, T10, T11, T12)
+          
+    - **After processing C1:** Cache contains K/V for {T1, T2, T3, T4}.
+        
+    - **After processing C2:**
+        
+        - Tokens in C2 attend to C1 (within SWA) and themselves.
+        - Cache now contains K/V for {T5, T6, T7, T8} (because T1-T4 rolled out if W=4).
+          
+    - **Now, processing C3 ("the dog go to" - T9, T10, T11, T12):**
+        
+        - **"...it attends itself using a causal mask (rightmost block)..."**
+            
+            - **My understanding:** Tokens within C3 (T9-T12) attend to preceding tokens _within C3_ and themselves. For example, T10 ("dog") attends to T9 ("the") and T10 ("dog"). This is standard causal attention _within the current chunk_.
+
+        - **"...attends the cache using a sliding window (center block)..."**
+            
+            - **My understanding:** Tokens in C3 also attend to tokens from _previous chunks whose K/V are still in the cache and within their SWA window_.
+            - The cache (after C2 was processed) contains K/V for {T5, T6, T7, T8}.
+            - Consider T9 ("the" from C3). Its SWA window (W=4) is {T6, T7, T8, T9}.
+                - It will attend to T6, T7, T8 (whose K/V are in the cache from C2).
+                - It will attend to T9 (from C3 itself, covered by the "attends itself" part).
+            - This "center block" represents attention to the K/V pairs from C2 that are still relevant.
+
+        - **"...and does not attend to past tokens as they are outside of the sliding window (left block)."**
+            
+            - **My understanding:** Tokens in C3 (like T9) will _not_ attend to tokens from C1 (T1, T2, T3, T4) because of the window size `W` of 4. Because if W=4, T9's SWA window is {T6, T7, T8, T9}. T1-T4 are far outside this window. Their K/V pairs would have been "rolled out" of the cache when C2 was processed.
+            - This "left block" represents the K/V pairs from C1 that are no longer accessible because they are outside the SWA limit and have been evicted from the fixed-size rolling buffer.
+
+
+In other words, the paper's Figure 3 description is a concise way of saying: When processing a new chunk of a long prompt:
+
+1. Look at other tokens within the current chunk (i.e., the `causal` part).
+2. Look at the _recent history_ from previous chunks that's still in our rolling buffer cache (this history is limited by the sliding window size `W`) (i.e., the `cache` part).
+3. Ignore anything older than that, because SWA doesn't allow us to see it, and the rolling buffer wouldn't have kept it anyway.

@@ -27,7 +27,7 @@
       {
         "id": "457dffb416d18ccb",
         "type": "tabs",
-        "dimension": 53.20540776275622,
+        "dimension": 53.20540776275621,
         "children": [
           {
             "id": "daa4402e0b1086fd",
@@ -98,7 +98,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 352.01103591918945,
     "collapsed": true
   },
   "right": {
@@ -188,19 +188,24 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
   "active": "c02344e3e6669583",
   "lastOpenFiles": [
     "Mistral 7B v0.1/mistral7b0-1.pdf",
     "Mistral 7B v0.1/Mistral 7b v0.1.md",
+    "Mistral 7B v0.1/Pasted image 20250513215126.png",
+    "Mistral 7B v0.1/Pasted image 20250513102836.png",
     "Mistral 7B v0.1/Pasted image 20250513081338.png",
+    "Mistral 7B v0.1/Pasted image 20250513102801.png",
+    "Mistral 7B v0.1/assets",
+    "Mistral 7B v0.1/Resources.md",
     "Mistral 7B v0.1/Screenshot 2025-05-12 at 21.28.12.png",
+    "Mistral 7B v0.1/Pasted image 20250513102715.png",
+    "Mistral 7B v0.1/Pasted image 20250513102704.png",
     "Pasted.md",
     "Mistral 7B v0.1/Pasted image 20250512212308.png",
-    "Mistral 7B v0.1/Resources.md",
     "README.md",
     "On Paper Reading.md",
     "Welcome.md",
