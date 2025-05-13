@@ -1,8 +1,10 @@
 #mistral #llm #mistral-7b-v0_1 #gqa #swa 
 
+```table-of-contents
+```
+
 ![[mistral7b0-1.pdf]]
 ---
-
 ### Quotes from the paper
 
 > Mistral 7B leverages grouped-query attention (GQA) [ 1 ], and sliding window attention (SWA) [6, 3]. GQA significantly accelerates the inference speed, and also reduces the memory requirement during decoding, allowing for higher batch sizes hence higher throughput, a crucial factor for real-time applications. In addition, SWA is designed to handle longer sequences more effectively at a reduced computational cost, thereby alleviating a common limitation in LLMs. These attention mechanisms collectively contribute to the enhanced performance and efficiency of Mistral 7B.

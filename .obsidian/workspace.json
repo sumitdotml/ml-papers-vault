@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "ebcc181df2828954",
+        "id": "457dffb416d18ccb",
         "type": "tabs",
-        "dimension": 46.79459223724379,
+        "dimension": 42.31927710843373,
         "children": [
           {
-            "id": "c02344e3e6669583",
+            "id": "daa4402e0b1086fd",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -25,12 +25,12 @@
         ]
       },
       {
-        "id": "457dffb416d18ccb",
+        "id": "04a51cb228b55e6b",
         "type": "tabs",
-        "dimension": 53.20540776275621,
+        "dimension": 57.68072289156626,
         "children": [
           {
-            "id": "daa4402e0b1086fd",
+            "id": "a06c6d1e4f358b8b",
             "type": "leaf",
             "state": {
               "type": "pdf",
@@ -171,14 +171,23 @@
               "icon": "lucide-list",
               "title": "Outline of Mistral 7b v0.1"
             }
+          },
+          {
+            "id": "c02344e3e6669583",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 505
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -191,10 +200,14 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "c02344e3e6669583",
+  "active": "daa4402e0b1086fd",
   "lastOpenFiles": [
+    "assets/mistral-screenshot.png",
+    "assets/Pasted image 20250513220724.png",
+    "Mistral 7B v0.1/Pasted image 20250513220724.png",
     "Mistral 7B v0.1/mistral7b0-1.pdf",
     "Mistral 7B v0.1/Mistral 7b v0.1.md",
+    "assets",
     "Mistral 7B v0.1/Pasted image 20250513215126.png",
     "Mistral 7B v0.1/Pasted image 20250513102836.png",
     "Mistral 7B v0.1/Pasted image 20250513081338.png",
