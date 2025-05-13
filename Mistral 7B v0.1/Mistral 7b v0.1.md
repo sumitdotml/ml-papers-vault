@@ -97,3 +97,65 @@ So, basically the illustration below:
 
 [[mistral7b0-1.pdf#page=2&selection=157,36,168,6|mistral7b0-1, page 2]]
 
+### Rolling Buffer Cache
+
+> A fixed attention span means that we can limit our cache size using a rolling buffer cache. The cache has a fixed size of W , and the keys and values for the timestep i are stored in position i mod W of the cache. As a result, when the position i is larger than W , past values in the cache are overwritten, and the size of the cache stops increasing
+
+[[mistral7b0-1.pdf#page=2&selection=186,0,213,72|mistral7b0-1, page 2]]
+
+With SWA, with a window size `W`, a token only needs to attend to the previous `W-1` tokens and itself. The Rolling Buffer Cache leverages this insight from SWA. Instead of storing K and V for _all_ preceding tokens, it only stores the K and V vectors for the most recent `W` tokens.
+
+- **Fixed Size:** It uses a cache with a fixed size, determined by the window size `W`.
+- **Mechanism:** I can think of it like a first-in, first-out (FIFO) queue, but implemented efficiently as a circular buffer.
+    - The cache holds `W` slots for K/V pairs.
+    - When a new token (say, token `t`) is processed, its K and V vectors (Kₜ, Vₜ) are calculated.
+    - These new K/V vectors need to be added to the cache.
+    - If the cache already holds `W` pairs, the _oldest_ pair (corresponding to token `t-W`) is removed (or overwritten) to make space.
+    - The new pair (Kₜ, Vₜ) is added.
+- **"Rolling" or "Circular":** This process happens continuously. As new tokens are generated, their K/V pairs are added, and the oldest ones (that fall outside the sliding window) are discarded. The buffer conceptually "rolls" forward. This is often implemented using modular arithmetic on the indices (`index % W`) so that I can keep writing into a fixed-size array, overwriting the oldest entries naturally.
+
+**Visualization:**
+
+Let me assume **Window Size (`W`) = 4** and try to visualize the rolling buffer cache logic I just discussed earlier by tracing the cache state during generation for the input prompt **"The quick brown fox"**:
+
+- **Cache:** Pretty much a buffer designed to hold 4 K/V pairs. Let's represent slots as `[ Slot 0 | Slot 1 | Slot 2 | Slot 3 ]`. I'll use an index pointer that wraps around (modulo 4 since `W` = 4). Using `Pointer = 0` initially.
+    
+- **Process Token 1 ("The"):** Calculate K₁, V₁. Store at `Pointer=0`.
+    
+    - Cache: `[ (K₁,V₁) | - | - | - ]`
+    - Pointer becomes `(0 + 1) % 4 = 1`.
+
+- **Process Token 2 ("quick"):** Calculate K₂, V₂. Store at `Pointer=1`.
+    
+    - Cache: `[ (K₁,V₁) | (K₂,V₂) | - | - ]`
+    - Pointer becomes `(1 + 1) % 4 = 2`.
+
+- **Process Token 3 ("brown"):** Calculate K₃, V₃. Store at `Pointer=2`.
+    
+    - Cache: `[ (K₁,V₁) | (K₂,V₂) | (K₃,V₃) | - ]`
+    - Pointer becomes `(2 + 1) % 4 = 3`.
+
+- **Process Token 4 ("fox"):** Calculate K₄, V₄. Store at `Pointer=3`.
+    
+    - Cache: `[ (K₁,V₁) | (K₂,V₂) | (K₃,V₃) | (K₄,V₄) ]` (Cache is full)
+    - Pointer becomes `(3 + 1) % 4 = 0`.
+
+- **Generate Token 5 ("jumps"):**
+    
+    - _Attention Calculation:_ Needs K/V for tokens 1, 2, 3, 4 (relative position -3, -2, -1, 0). All are in the cache.
+    - _Calculate K₅, V₅._
+    - _Store:_ Store at `Pointer=0`. This **overwrites** (K₁, V₁), which is the oldest entry and no longer needed for the next step according to SWA.
+    - Cache: `[ (K₅,V₅) | (K₂,V₂) | (K₃,V₃) | (K₄,V₄) ]`
+    - Pointer becomes `(0 + 1) % 4 = 1`.
+
+- **Generate Token 6 ("over"):**
+    
+    - _Attention Calculation:_ Needs K/V for tokens 2, 3, 4, 5 (relative position -3, -2, -1, 0). All are in the cache.
+    - _Calculate K₆, V₆._
+    - _Store:_ Store at `Pointer=1`. This **overwrites** (K₂, V₂).
+    - Cache: `[ (K₅,V₅) | (K₆,V₆) | (K₃,V₃) | (K₄,V₄) ]`
+    - Pointer becomes `(1 + 1) % 4 = 2`.
+
+...and so on. The cache always contains the K/V pairs for the most recent `W=4` tokens, and its memory size never increases beyond `W`. In the paper, this is visualized like the following:
+
+![Rolling Buffer Cache screenshot](./Pasted%20image%2020250513081338.png)

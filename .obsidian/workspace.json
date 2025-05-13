@@ -6,6 +6,7 @@
       {
         "id": "ebcc181df2828954",
         "type": "tabs",
+        "dimension": 46.79459223724379,
         "children": [
           {
             "id": "c02344e3e6669583",
@@ -19,6 +20,25 @@
               },
               "icon": "lucide-file",
               "title": "Mistral 7b v0.1"
+            }
+          }
+        ]
+      },
+      {
+        "id": "457dffb416d18ccb",
+        "type": "tabs",
+        "dimension": 53.20540776275622,
+        "children": [
+          {
+            "id": "daa4402e0b1086fd",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Mistral 7B v0.1/mistral7b0-1.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "mistral7b0-1"
             }
           }
         ]
@@ -78,7 +98,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "806a96684c27eedc",
@@ -173,10 +194,11 @@
   },
   "active": "c02344e3e6669583",
   "lastOpenFiles": [
-    "Mistral 7B v0.1/Screenshot 2025-05-12 at 21.28.12.png",
-    "Mistral 7B v0.1/Mistral 7b v0.1.md",
-    "Pasted.md",
     "Mistral 7B v0.1/mistral7b0-1.pdf",
+    "Mistral 7B v0.1/Mistral 7b v0.1.md",
+    "Mistral 7B v0.1/Pasted image 20250513081338.png",
+    "Mistral 7B v0.1/Screenshot 2025-05-12 at 21.28.12.png",
+    "Pasted.md",
     "Mistral 7B v0.1/Pasted image 20250512212308.png",
     "Mistral 7B v0.1/Resources.md",
     "README.md",
