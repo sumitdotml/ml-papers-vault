@@ -236,3 +236,11 @@ In other words, the paper's Figure 3 description is a concise way of saying: Whe
 1. Look at other tokens within the current chunk (i.e., the `causal` part).
 2. Look at the _recent history_ from previous chunks that's still in our rolling buffer cache (this history is limited by the sliding window size `W`) (i.e., the `cache` part).
 3. Ignore anything older than that, because SWA doesn't allow us to see it, and the rolling buffer wouldn't have kept it anyway.
+
+---
+## Mistral Architecture
+
+![Architecture from Bradley Smith](./Architecture%20from%20Bradley%20Smith.png)
+
+Source: [Bradley Smith's blog](https://medium.com/data-science/mistral-7b-explained-towards-more-efficient-language-models-7f9c6e6b7251)
+
