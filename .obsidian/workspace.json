@@ -203,6 +203,9 @@
   "lastOpenFiles": [
     "Mistral 7B v0.1/mistral7b0-1.pdf",
     "Mistral 7B v0.1/Mistral 7b v0.1.md",
+    "Concepts to deeply dive into.md",
+    "RMSNorm vs. LayerNorm vs. BatchNorm.md",
+    "On Paper Reading.md",
     "Mistral 7B v0.1/Architecture from Bradley Smith.png",
     "Mistral 7B v0.1/Mistral 7b v0.1 architecture.excalidraw.md",
     "assets/mistral-screenshot.png",
@@ -219,7 +222,6 @@
     "Mistral 7B v0.1/Pasted image 20250513102715.png",
     "Pasted.md",
     "README.md",
-    "On Paper Reading.md",
     "Welcome.md",
     "Mistral 7B v0.1"
   ]

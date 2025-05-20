@@ -1,0 +1,2 @@
+- [ ] RMSNorm vs. LayerNorm vs. BatchNorm
+- [ ] 
