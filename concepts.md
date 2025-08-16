@@ -1,0 +1,5 @@
+- [ ] RMSNorm vs. LayerNorm vs. BatchNorm
+- [ ] Best-of-N sampling / Sampling and reranking
+- [ ] Scaling inference-time compute
+- [ ] LLM Temperature
+- [ ] Top-p (nucleus sampling) and Top-k sampling

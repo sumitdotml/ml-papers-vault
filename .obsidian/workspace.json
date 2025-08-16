@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NeoBabel/notes.md",
+                "file": "when-life-gives-you-samples/notes.md",
                 "mode": "source",
                 "source": false
               },
@@ -173,6 +173,9 @@
   "active": "3cdaa926e0246aa6",
   "lastOpenFiles": [
     "NeoBabel/notes.md",
+    "concepts.md",
+    "when-life-gives-you-samples/notes.md",
+    "when-life-gives-you-samples",
     "Mistral 7B v0.1/Mistral 7b v0.1.md",
     "NeoBabel",
     "seq2seq/seq2seq.md",
