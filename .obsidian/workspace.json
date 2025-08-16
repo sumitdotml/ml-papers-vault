@@ -1,42 +1,24 @@
 {
   "main": {
-    "id": "d35521db852d580c",
+    "id": "6b8700ad4b16aef1",
     "type": "split",
     "children": [
       {
-        "id": "04a51cb228b55e6b",
+        "id": "7d059f22579be1ee",
         "type": "tabs",
         "children": [
           {
-            "id": "ddfc245c6cba7f4d",
+            "id": "3cdaa926e0246aa6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Mistral 7B v0.1/Mistral 7b v0.1.md",
+                "file": "NeoBabel/notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Mistral 7b v0.1"
-            }
-          }
-        ]
-      },
-      {
-        "id": "3c2dd64e671cdb90",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "a06c6d1e4f358b8b",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Mistral 7B v0.1/mistral7b0-1.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "mistral7b0-1"
+              "title": "notes"
             }
           }
         ]
@@ -45,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "74ebba73b43ea99d",
+    "id": "3aec6b8f862e4957",
     "type": "split",
     "children": [
       {
-        "id": "4f56af674f800bb4",
+        "id": "6ffb5326055f8204",
         "type": "tabs",
         "children": [
           {
-            "id": "754f968b3b00a722",
+            "id": "5640f213f2ebccb0",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -66,7 +48,7 @@
             }
           },
           {
-            "id": "e8dd5baaceb12adc",
+            "id": "3bee71693c8f36ce",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -83,7 +65,7 @@
             }
           },
           {
-            "id": "e3bd7ea94de0e497",
+            "id": "bf5537920f88868b",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -96,24 +78,24 @@
       }
     ],
     "direction": "horizontal",
-    "width": 352.01103591918945,
+    "width": 300,
     "collapsed": true
   },
   "right": {
-    "id": "806a96684c27eedc",
+    "id": "0264dbbbf796aa26",
     "type": "split",
     "children": [
       {
-        "id": "7c6936e7e061a7f6",
+        "id": "6e721831a3ede00e",
         "type": "tabs",
         "children": [
           {
-            "id": "fc2b3d690396a5f3",
+            "id": "27de9eb43503fb64",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Mistral 7B v0.1/Mistral 7b v0.1.md",
+                "file": "seq2seq/seq2seq.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,31 +105,31 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Mistral 7b v0.1"
+              "title": "Backlinks for seq2seq"
             }
           },
           {
-            "id": "e467c5c76b3231be",
+            "id": "ec192ebecb6dbf70",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Mistral 7B v0.1/Mistral 7b v0.1.md",
+                "file": "seq2seq/seq2seq.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Mistral 7b v0.1"
+              "title": "Outgoing links from seq2seq"
             }
           },
           {
-            "id": "5680fea5a4cbff50",
+            "id": "31300eb67ba49a5a",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": false,
+                "useHierarchy": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -156,36 +138,25 @@
             }
           },
           {
-            "id": "f8566b2699ca2519",
+            "id": "5443fa93649c7209",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Mistral 7B v0.1/Mistral 7b v0.1.md",
+                "file": "seq2seq/seq2seq.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Mistral 7b v0.1"
-            }
-          },
-          {
-            "id": "c02344e3e6669583",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "title": "Outline of seq2seq"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 505,
+    "width": 300,
     "collapsed": true
   },
   "left-ribbon": {
@@ -199,30 +170,12 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "ddfc245c6cba7f4d",
+  "active": "3cdaa926e0246aa6",
   "lastOpenFiles": [
-    "Mistral 7B v0.1/mistral7b0-1.pdf",
+    "NeoBabel/notes.md",
     "Mistral 7B v0.1/Mistral 7b v0.1.md",
-    "Concepts to deeply dive into.md",
-    "RMSNorm vs. LayerNorm vs. BatchNorm.md",
-    "On Paper Reading.md",
-    "Mistral 7B v0.1/Architecture from Bradley Smith.png",
-    "Mistral 7B v0.1/Mistral 7b v0.1 architecture.excalidraw.md",
-    "assets/mistral-screenshot.png",
-    "assets/Pasted image 20250513220724.png",
-    "Mistral 7B v0.1/Pasted image 20250513220724.png",
-    "assets",
-    "Mistral 7B v0.1/Pasted image 20250513215126.png",
-    "Mistral 7B v0.1/Pasted image 20250513102836.png",
-    "Mistral 7B v0.1/Pasted image 20250513081338.png",
-    "Mistral 7B v0.1/Pasted image 20250513102801.png",
-    "Mistral 7B v0.1/assets",
-    "Mistral 7B v0.1/Resources.md",
-    "Mistral 7B v0.1/Screenshot 2025-05-12 at 21.28.12.png",
-    "Mistral 7B v0.1/Pasted image 20250513102715.png",
-    "Pasted.md",
-    "README.md",
-    "Welcome.md",
-    "Mistral 7B v0.1"
+    "NeoBabel",
+    "seq2seq/seq2seq.md",
+    "seq2seq/seq2seq.pdf"
   ]
 }
