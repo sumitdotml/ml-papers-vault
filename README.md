@@ -29,4 +29,3 @@ That's it!
 ## Papers
 
 1. [Mistral 7B v0.1](./Mistral%207B%20v0.1/Mistral%207b%20v0.1.md)
-2. [When Life Gives You Samples](./when-life-gives-you-samples/notes.md)
