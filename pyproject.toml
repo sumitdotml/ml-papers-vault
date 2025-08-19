@@ -1,0 +1,9 @@
+[project]
+name = "ml-papers-vault"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "marker-pdf>=1.8.3",
+]

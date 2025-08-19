@@ -29,3 +29,12 @@ That's it!
 ## Papers
 
 1. [Mistral 7B v0.1](./Mistral%207B%20v0.1/Mistral%207b%20v0.1.md)
+2. [When Life Gives You Samples](./when-life-gives-you-samples/notes.md)
+3. [One Tokenizer to Rule Them All](./one-tokenizer-to-rule-them-all/notes.md)
+
+---
+
+## Tools
+
+- [Obsidian](https://obsidian.md/) for note-taking
+- [Marker](https://github.com/datalab-to/marker) for converting pdfs to markdown
