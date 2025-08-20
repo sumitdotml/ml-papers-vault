@@ -505,10 +505,14 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "marker-pdf" },
+    { name = "torch" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "marker-pdf", specifier = ">=1.8.3" }]
+requires-dist = [
+    { name = "marker-pdf", specifier = ">=1.8.3" },
+    { name = "torch", specifier = ">=2.8.0" },
+]
 
 [[package]]
 name = "mpmath"
