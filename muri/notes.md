@@ -29,3 +29,19 @@ So the MURI flow is:
 4. use the LLM-generated reverse-instruction and then translate this instruction back to the target output language
 
 So basically, we have the authenticity of the target language in the dataset with the attempt at minimizing the translationese artifcats.
+
+---
+
+# Some questions of mine
+
+#### 1. The following part:
+
+> We evaluate and analyze the dataset with native speakers in 13 languages. We find that the data is highly idiomatic in many languages
+
+[[paper.pdf#page=2&selection=103,6,105,34|paper, page 2]]
+
+- How do you determine this is highly idiomatic? How many languages? You claim that the `MURI-IT` dataset has 200 languages in its 2 million instruction-output pairs. So is 13 enough?
+- Also, how are the languages broken down in this dataset? You claim that 64% of the data is from low-resource languages (following quote), but how is each language's proportion? Can we see it all in HF? (probably).
+  > This dataset consists of 2,228,499 instruction-output pairs, with 64% of the data from low-resource languages.
+
+[[paper.pdf#page=2&selection=99,45,102,7|paper, page 2]]
