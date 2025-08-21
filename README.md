@@ -38,3 +38,11 @@ That's it!
 
 - [Obsidian](https://obsidian.md/) for note-taking
 - [Marker](https://github.com/datalab-to/marker) for converting pdfs to markdown
+
+---
+
+## Resources
+
+[How to read deep learning papers?](https://www.youtube.com/watch?v=nL7lAo95D-o) by Yacine Mahdid
+
+![screenshot-from-yacines-video](./how-to-read-dl-papers-by-yacine-mahdid.png)

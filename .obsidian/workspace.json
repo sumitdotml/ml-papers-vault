@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "muri/notes.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "notes"
+              "title": "README"
             }
           },
           {
@@ -33,8 +33,7 @@
               "title": "paper"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -91,8 +90,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "0264dbbbf796aa26",
@@ -183,8 +181,10 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "9ac732e368f0dbd9",
+  "active": "fb5de284f605aa37",
   "lastOpenFiles": [
+    "how-to-read-dl-papers-by-yacine-mahdid.png",
+    "README.md",
     "muri/notes.md",
     "muri/paper.pdf",
     "one-tokenizer-to-rule-them-all/paper/paper.md",
