@@ -2,6 +2,12 @@
 
 Instruction tuning enhances large language models (LLMs) by aligning them with hu- man preferences across diverse tasks. Tradi- tional approaches to create instruction tun- ing datasets face serious challenges for low- resource languages due to their dependence on data annotation. This work introduces a novel method, Multilingual Reverse Instruc- tions (MURI), which generates high-quality instruction tuning datasets for low-resource languages without requiring human annota- tors or pre-existing multilingual models. Uti- lizing reverse instructions and a translation pipeline, MURI produces instruction-output pairs from existing human-written texts in low-resource languages. This method en- sures cultural relevance and diversity by sourcing texts from different native domains and applying filters to eliminate inappropri- ate content. Our dataset, MURI-IT, includes more than 2 million instruction-output pairs across 200 languages. Evaluation by native speakers and fine-tuning experiments with mT5 models demonstrate the approach’s ef- fectiveness for both NLU and open-ended generation. We publicly release datasets and models at [https://github.com/akoksal/muri](https://github.com/akoksal/muri).
 
+## First Casual Read
+
+### The Unknowns
+
+
+
 ## Notes: zero-shot
 
 ### Main questions
@@ -45,3 +51,14 @@ So basically, we have the authenticity of the target language in the dataset wit
   > This dataset consists of 2,228,499 instruction-output pairs, with 64% of the data from low-resource languages.
 
 [[paper.pdf#page=2&selection=99,45,102,7|paper, page 2]]
+
+---
+#### 2. The following part:
+
+> hree main approaches have been applied to create instruction tuning datasets: hu- man annotation (Ouyang et al., 2022; Köpf et al., 2023; Conover et al., 2023), templatized NLP tasks (Sanh et al., 2022; Wang et al., 2022; Longpre et al., 2023a), and synthetic data generation via LLMs (Wang et al., 2023; Honovich et al., 2022).
+
+[[paper.pdf#page=1&selection=74,15,80,43|paper, page 1]]
+
+Really? Do I trust the authors for it? Do I do further research on it? Also, potential question: are there other ways to do this? Have any new methods been introduced? Can I perhaps think of something myself to research on?
+
+

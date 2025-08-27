@@ -12,3 +12,12 @@ So, my main takeaways:
 - more reading means getting better at understanding quickly what the main ideas are, filtering out noise, and importantly, effectively skimming papers
 - document the learnings well, take notes, make a mental model
 - not every paper needs to be read thoroughly (unless there are reasons)
+
+---
+### Paper PDF Annotations
+
+Pink = I don't really get it
+Yellow = I think I need more brush-up
+Blue = Might have questions
+Purple = Wait... I might have an interesting idea / experiment etc. on this
+Green = Important bit here & there

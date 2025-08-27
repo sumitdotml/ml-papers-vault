@@ -3,5 +3,6 @@
   "interfaceFontFamily": "PT Mono",
   "textFontFamily": "Andale Mono",
   "theme": "obsidian",
-  "baseFontSize": 17
+  "baseFontSize": 17,
+  "accentColor": "#a257ff"
 }
